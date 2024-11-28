@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+window.initCharts = function() {
     // Line chart
     var lineChart = document.getElementById("chartjs-dashboard-line");
     if (lineChart) {
@@ -221,6 +221,10 @@ document.addEventListener("DOMContentLoaded", function() {
             defaultDate: defaultDate
         });
     }
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.initCharts();
 });
 	
 	

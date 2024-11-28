@@ -8,21 +8,17 @@ import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-
-  <div className="wrapper">
-    <Sidebar />
-
-    <div className="main">
+    <div className="wrapper">
+      <Sidebar />
+      <div className="main">
         <Navbar />
-
         <main className="content">
-				<div className="container-fluid p-0">
-
-          <Dashboard />
-        </div>
-          </main>
+          <div className="container-fluid p-0">
+            <Dashboard />
+          </div>
+        </main>
         <Footer />
-    </div>
+      </div>
     </div>
   );
 }

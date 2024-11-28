@@ -1,6 +1,12 @@
 import React from "react";
 
 function Navbar() {
+    // Add error handling for images
+    const handleImageError = (e) => {
+        e.target.src = "/adminkit/img/avatars/default-avatar.jpg"; // Fallback image
+        // Or you could use: e.target.style.display = 'none';
+    };
+
     return (
         <nav className="navbar navbar-expand navbar-light navbar-bg">
 				<a className="sidebar-toggle js-sidebar-toggle">
@@ -90,7 +96,12 @@ function Navbar() {
 									<a href="#" className="list-group-item">
 										<div className="row g-0 align-items-center">
 											<div className="col-2">
-												<img src="/adminkit/img/avatars/avatar-5.jpg" className="avatar img-fluid rounded-circle" alt="Vanessa Tucker"/>
+												<img 
+													src="/adminkit/img/avatars/avatar-5.jpg" 
+													className="avatar img-fluid rounded-circle" 
+													alt="Vanessa Tucker"
+													onError={handleImageError}
+												/>
 											</div>
 											<div className="col-10 ps-2">
 												<div className="text-dark">Vanessa Tucker</div>
@@ -102,7 +113,7 @@ function Navbar() {
 									<a href="#" className="list-group-item">
 										<div className="row g-0 align-items-center">
 											<div className="col-2">
-												<img src="/dminkit/img/avatars/avatar-2.jpg" className="avatar img-fluid rounded-circle" alt="William Harris"/>
+												<img src="/adminkit/img/avatars/avatar-2.jpg" className="avatar img-fluid rounded-circle" alt="William Harris" onError={handleImageError}/>
 											</div>
 											<div className="col-10 ps-2">
 												<div className="text-dark">William Harris</div>
@@ -114,7 +125,7 @@ function Navbar() {
 									<a href="#" className="list-group-item">
 										<div className="row g-0 align-items-center">
 											<div className="col-2">
-												<img src="/adminkit/img/avatars/avatar-4.jpg" className="avatar img-fluid rounded-circle" alt="Christina Mason"/>
+												<img src="/adminkit/img/avatars/avatar-4.jpg" className="avatar img-fluid rounded-circle" alt="Christina Mason" onError={handleImageError}/>
 											</div>
 											<div className="col-10 ps-2">
 												<div className="text-dark">Christina Mason</div>
@@ -126,7 +137,7 @@ function Navbar() {
 									<a href="#" className="list-group-item">
 										<div className="row g-0 align-items-center">
 											<div className="col-2">
-												<img src="/adminkit/img/avatars/avatar-3.jpg" className="avatar img-fluid rounded-circle" alt="Sharon Lessman"/>
+												<img src="/adminkit/img/avatars/avatar-3.jpg" className="avatar img-fluid rounded-circle" alt="Sharon Lessman" onError={handleImageError}/>
 											</div>
 											<div className="col-10 ps-2">
 												<div className="text-dark">Sharon Lessman</div>
@@ -151,7 +162,13 @@ function Navbar() {
               </a>
 							<div className="dropdown-menu dropdown-menu-end">
 								<a className="dropdown-item" href="pages-profile.html"><i className="align-middle me-1" data-feather="user"></i> Profile</a>
-								<a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
+								<a 
+								  href="#" 
+								  className="dropdown-item" 
+								  onClick={(e) => e.preventDefault()}
+								>
+								  <i className="align-middle me-1" data-feather="pie-chart"></i> Analytics
+								</a>
 								<div className="dropdown-divider"></div>
 								<a className="dropdown-item" href="index.html"><i className="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a className="dropdown-item" href="#"><i className="align-middle me-1" data-feather="help-circle"></i> Help Center</a>

@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Dashboard() {
+    useEffect(() => {
+        // Initialize Feather icons
+        if (window.feather) {
+            window.feather.replace();
+        }
+
+        // Initialize charts
+        const initializeCharts = () => {
+            if (window.initCharts) {
+                window.initCharts();
+            }
+        };
+
+        // Wait for a short delay to ensure DOM elements are ready
+        const timer = setTimeout(initializeCharts, 100);
+
+        // Cleanup
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <>
         <h1 className="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
